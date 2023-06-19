@@ -1,3 +1,96 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
+  "globals": {
+    "React": true,
+    "JSX": true
+  },
+  "rules": {
+    "no-console": 2,
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/state-in-constructor": "off",
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "no-use-before-define": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "prettier/prettier": "error",
+    "import/no-extraneous-dependencies": [
+      "error", {
+         "devDependencies": false, 
+         "optionalDependencies": false, 
+         "peerDependencies": false, 
+         "packageDir": "./"
+      }
+  ],
+  "no-underscore-dangle":  "off"
+  }
 }
