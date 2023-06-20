@@ -9,10 +9,7 @@ type Props = {
 };
 
 export const PostTextArea: React.FC<Props> = ({ setFakePosts, fakePosts }) => {
-  const getFakePostFromStorage = localStorage.getItem('fakePostTitle');
-  const [fakePostTitle, setFakePostTitle] = useState<string>(
-    getFakePostFromStorage ?? '',
-  );
+  const [fakePostTitle, setFakePostTitle] = useState<string>('');
 
   const addFakePosteHanlder = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +21,12 @@ export const PostTextArea: React.FC<Props> = ({ setFakePosts, fakePosts }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('fakePostTitle', fakePostTitle);
+    if (fakePostTitle.length > 0) {
+      localStorage.setItem('fakePostTitle', fakePostTitle);
+    }
+    const fakeTitle = localStorage.getItem('fakePostTitle');
+    setFakePostTitle(fakeTitle || '');
+
     if (fakePosts.length > 0) {
       localStorage.setItem('fakePosts', JSON.stringify(fakePosts));
     }
